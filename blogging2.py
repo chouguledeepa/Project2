@@ -40,6 +40,17 @@ class Blog(BaseModel):
                 }
         }
 
+class blogResponse(BaseModel):
+    id : UUID
+    title:str = Field(min_length=1)
+    author: str
+    description:Optional[str] = Field(
+        None,
+        title="description of blog",
+        max_length=250,
+        min_length=1
+    )
+
 
 class LanguageName(Enum):
     python = "Python"
